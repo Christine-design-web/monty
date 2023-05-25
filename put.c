@@ -18,14 +18,14 @@ void pchar_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (node->p < 0 || node->p > 127)
+	if (node->n < 0 || node->n > 127)
 	{
 		dprintf(STDERR_FILENO, PCHAR_RANGE, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
 
-	putchar(node->p);
+	putchar(node->n);
 	putchar('\n');
 }
 /**
@@ -46,9 +46,9 @@ void pstr_handler(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	while (node && node->p != 0 && node->p >= 0 && node->p <= 127)
+	while (node && node->n != 0 && node->n >= 0 && node->n <= 127)
 	{
-		putchar(node->p);
+		putchar(node->n);
 		node = node->next;
 	}
 

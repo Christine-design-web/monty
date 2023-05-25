@@ -21,7 +21,7 @@ void sub_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sub = node_1->p - node_0->p;
+	sub = node_1->n - node_0->n;
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, sub);
@@ -52,7 +52,7 @@ void div_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (node_0->p == 0)
+	if (node_0->n == 0)
 	{
 		dprintf(STDERR_FILENO, DIV_ZERO, line_number);
 		free_all(1);
@@ -60,7 +60,7 @@ void div_handler(stack_t **stack, unsigned int line_number)
 	}
 /* this will look for the division */
 
-	div = node_1->p / node_0->p;
+	div = node_1->n / node_0->n;
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, div);
@@ -92,7 +92,7 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 	}
 /* less commenting for this */
 
-	mul = node_1->p * node_0->p;
+	mul = node_1->n * node_0->n;
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, mul);
@@ -123,14 +123,14 @@ void mod_handler(stack_t **stack, unsigned int line_number)
 	}
 /* looking whether it is equal to 0 */
 
-	if (node_0->p == 0)
+	if (node_0->n == 0)
 	{
 		dprintf(STDERR_FILENO, DIV_ZERO, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
 
-	mod = node_1->p % node_0->p;
+	mod = node_1->n % node_0->n;
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, mod);

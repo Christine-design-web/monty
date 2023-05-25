@@ -17,7 +17,7 @@ void pint_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 /* this will print to the terminal */
-	printf("%d\n", head->p);
+	printf("%d\n", head->n);
 }
 
 /**
@@ -60,7 +60,7 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 	}
 
 	temp = get_dnodeint_at_index(*stack, 0);
-	num = temp->p;
+	num = temp->n;
 	delete_dnodeint_at_index(stack, 0);
 	node = insert_dnodeint_at_index(stack, 1, num);
 	if (!node)
@@ -90,7 +90,7 @@ void add_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	sum = node_0->p + node_1->p;
+	sum = node_0->n + node_1->n;
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, sum);

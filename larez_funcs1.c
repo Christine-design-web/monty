@@ -25,11 +25,11 @@ size_t dlistint_len(const dlistint_t *b)
 /**
  * add_dnodeint -  this adds a new node at the beginning of a doubly linked list
  * @head: the double pointer to the list
- * @p: data to insert in the new node
+ * @n: data to insert in the new node
  * Return: the address of the new element, or NULL if it failed
  */
 
-dlistint_t *add_dnodeint(dlistint_t **head, const int p)
+dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
 	dlistint_t *new;
 
@@ -40,7 +40,7 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int p)
 	if (!new)
 		return (NULL);
 
-	new->n = p;
+	new->n = n;
 
 	new->next = *head;
 	new->prev = NULL;
@@ -67,8 +67,8 @@ size_t print_dlistint(const dlistint_t *b)
 
 	while (b)
 	{
-		printf("%d\n", b->p);
-		p = p->next;
+		printf("%d\n", b->n);
+		n = n->next;
 		nodes++;
 	}
 
