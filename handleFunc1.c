@@ -2,8 +2,8 @@
 #include "lists.h"
 
 /**
- * pint_handler - handles the pint instruction
- * @stack: double pointer to the stack to push to
+ * pint_handler -s will handle the pint instruction
+ * @stack: the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
 void pint_handler(stack_t **stack, unsigned int line_number)
@@ -19,12 +19,12 @@ void pint_handler(stack_t **stack, unsigned int line_number)
 
 	printf("%d\n", head->n);
 }
-
 /**
- * pop_handler - handles the pop instruction
- * @stack: double pointer to the stack to push to
+ * pop_handler - this will handle the pop instruction
+ * @stack: the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void pop_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
@@ -44,6 +44,7 @@ void pop_handler(stack_t **stack, unsigned int line_number)
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void swap_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack, *node = NULL;
@@ -67,12 +68,12 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-
 /**
  * add_handler - handles the add instruction
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void add_handler(stack_t **stack, unsigned int line_number)
 {
 	int sum = 0;
@@ -100,10 +101,11 @@ void add_handler(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * nop_handler - handles the nop instruction
- * @stack: double pointer to the stack to push to
+ * nop_handler - this will handle the nop instruction
+ * @stack: the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void nop_handler(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;

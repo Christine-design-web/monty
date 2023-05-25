@@ -1,12 +1,11 @@
 #include "monty.h"
 #include "lists.h"
-
 /**
- * get_func - selects the right function
+ * get_func - this will select the right function
  * @parsed: line from the bytecode file passed to main
- *
  * Return: pointer to the selected function, or NULL on failure
  */
+
 void (*get_func(char **parsed))(stack_t **, unsigned int)
 {
 	instruction_t func_arr[] = {
@@ -30,27 +29,28 @@ void (*get_func(char **parsed))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	int codes = 17, i;
+	int codes = 17, j;
 
-	for (i = 0; i < codes; i++)
+	for (j = 0; j < codes; j++)
 	{
-		if (strcmp(func_arr[i].opcode, parsed[0]) == 0)
+		if (strcmp(func_arr[j].opcode, parsed[0]) == 0)
 		{
-			return (func_arr[i].f);
+			return (func_arr[j].f);
 		}
 	}
 	return (NULL);
 }
 
 /**
- * push_handler - handles the push instruction
- * @stack: double pointer to the stack to push to
+ * push_handler - this will handle the push instruction
+ * @stack: the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void push_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	int num = 0, i;
+	int num = 0, j;
 
 	if (data.words[1] == NULL)
 	{
@@ -59,9 +59,9 @@ void push_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	for (i = 0; data.words[1][i]; i++)
+	for (j = 0; data.words[1][j]; j++)
 	{
-		if (isalpha(data.words[1][i]) != 0)
+		if (isalpha(data.words[1][j]) != 0)
 		{
 			dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 			free_all(1);
@@ -83,7 +83,7 @@ void push_handler(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * pall_handler - handles the pall instruction
+ * pall_handler - this will handle the pall instruction
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */

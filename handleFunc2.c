@@ -2,10 +2,11 @@
 #include "lists.h"
 
 /**
- * sub_handler - handles the sub instruction
+ * sub_handler - this will handle the sub instruction
  * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void sub_handler(stack_t **stack, unsigned int line_number)
 {
 	int sub = 0;
@@ -71,10 +72,11 @@ void div_handler(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * mul_handler - handles the mul instruction
- * @stack: double pointer to the stack to push to
+ * mul_handler - this will handle the mul instruction
+ * @stack: this is the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void mul_handler(stack_t **stack, unsigned int line_number)
 {
 	int mul = 0;
@@ -100,12 +102,12 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-
 /**
- * mod_handler - handles the mod instruction
- * @stack: double pointer to the stack to push to
+ * mod_handler - this will handle the mod instruction
+ * @stack:the  double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void mod_handler(stack_t **stack, unsigned int line_number)
 {
 	int mod = 0;

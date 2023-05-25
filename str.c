@@ -1,12 +1,11 @@
 #include "monty.h"
 #include "lists.h"
-
 /**
- * count_word - helper function to count the number of words in a string
- * @s: string to evaluate
- *
+ * count_word -the helperof the function to count the number of words in a string
+ * @s: the string to evaluate
  * Return: number of words
  */
+
 int count_word(char *s)
 {
 	int flag, c, w;
@@ -27,17 +26,18 @@ int count_word(char *s)
 
 	return (w);
 }
+
 /**
- * **strtow - splits a string into words
+ * **strtow - this will split a string into words
  * @str: string to split
- *
  * Return: pointer to an array of strings (Success)
  * or NULL (Error)
  */
+
 char **strtow(char *str)
 {
 	char **matrix, *tmp;
-	int i, k = 0, len = 0, words, c = 0, start, end;
+	int j, k = 0, len = 0, words, c = 0, start, end;
 
 	len = strlen(str);
 	words = count_word(str);
@@ -48,13 +48,13 @@ char **strtow(char *str)
 	if (matrix == NULL)
 		return (NULL);
 
-	for (i = 0; i <= len; i++)
+	for (j = 0; j <= len; j++)
 	{
-		if (isspace(str[i]) || str[i] == '\0' || str[i] == '\n')
+		if (isspace(str[j]) || str[j] == '\0' || str[j] == '\n')
 		{
 			if (c)
 			{
-				end = i;
+				end = j;
 				tmp = (char *) malloc(sizeof(char) * (c + 1));
 				if (tmp == NULL)
 					return (NULL);
@@ -67,27 +67,28 @@ char **strtow(char *str)
 			}
 		}
 		else if (c++ == 0)
-			start = i;
+			start = j;
 	}
 
 	matrix[k] = NULL;
 
 	return (matrix);
 }
-
 /**
- * free_everything - frees arrays of strings
- * @args: array of strings to free
+ * free_everything - this will free the arrays of strings
+ * @args: this is the array of strings to free
  */
+
 void free_everything(char **args)
 {
-	int i;
+	int j;
 
 	if (!args)
 		return;
+/*to be freed*/
 
-	for (i = 0; args[i]; i++)
-		free(args[i]);
+	for (j = 0; args[j]; j++)
+		free(args[j]);
 
 	free(args);
 }
