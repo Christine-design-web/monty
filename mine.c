@@ -1,16 +1,14 @@
 #include "monty.h"
-#include "lists.h"
+#include "larez.h"
 
 data_t data = DATA_INIT;
 
 /**
- * monty - helper function for main function
- * @args: pointer to struct of arguments from main
- *
- * Description: opens and reads from the file
- * containing the opcodes, and calls the function
- * that will find the corresponding executing function
+ * monty - the helper function for main function
+ * @args: the pointer to struct of arguments from main
+ * Description: this opens and reads from the file
  */
+
 void monty(args_t *args)
 {
 	size_t len = 0;
@@ -52,14 +50,13 @@ void monty(args_t *args)
 	}
 	free_all(1);
 }
-
 /**
- * main - entry point for monty bytecode interpreter
- * @argc: number of arguments
- * @argv: array of arguments
- *
+ * main - the entry point for monty bytecode interpreter
+ * @argc: the number of arguments
+ * @argv: the array of arguments
  * Return: EXIT_SUCCESS or EXIT_FAILURE
  */
+
 int main(int argc, char *argv[])
 {
 	args_t args;

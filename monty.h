@@ -9,7 +9,7 @@
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
- * @n: integer
+ * @p: the integer
  * @prev: points to the previous element of the stack (or queue)
  * @next: points to the next element of the stack (or queue)
  *
@@ -18,7 +18,7 @@
  */
 typedef struct stack_s
 {
-	int n;
+	int p;
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
@@ -93,43 +93,43 @@ extern data_t data;
 #define PCHAR_FAIL "L%u: can't pchar, stack empty\n"
 #define PCHAR_RANGE "L%u: can't pchar, value out of range\n"
 
-/* main.c */
+/* mine.c */
 void monty(args_t *args);
 
-/* get_func.c */
+/* get_byte.c */
 void (*get_func(char **parsed))(stack_t **, unsigned int);
 void push_handler(stack_t **stack, unsigned int line_number);
 void pall_handler(stack_t **stack, unsigned int line_number);
 
-/* handler_funcs1.c */
+/* handle_pint_funcs1.c */
 void pint_handler(stack_t **stack, unsigned int line_number);
 void pop_handler(stack_t **stack, unsigned int line_number);
 void swap_handler(stack_t **stack, unsigned int line_number);
 void add_handler(stack_t **stack, unsigned int line_number);
 void nop_handler(stack_t **stack, unsigned int line_number);
 
-/* handler_funcs2.c */
+/* handle_pint_funcs2.c */
 void sub_handler(stack_t **stack, unsigned int line_number);
 void div_handler(stack_t **stack, unsigned int line_number);
 void mul_handler(stack_t **stack, unsigned int line_number);
 void mod_handler(stack_t **stack, unsigned int line_number);
 
-/* handler_funcs3.c */
+/* handle_pint_funcs3.c */
 void rotl_handler(stack_t **stack, unsigned int line_number);
 void rotr_handler(stack_t **stack, unsigned int line_number);
 void stack_handler(stack_t **stack, unsigned int line_number);
 void queue_handler(stack_t **stack, unsigned int line_number);
 
-/* char.c */
+/* put.c */
 void pchar_handler(stack_t **stack, unsigned int line_number);
 void pstr_handler(stack_t **stack, unsigned int line_number);
 
-/* strtow.c */
+/* str_ow.c */
 int count_word(char *s);
 char **strtow(char *str);
 void free_everything(char **args);
 
-/* free.c */
+/* free_all.c */
 void free_all(int all);
 
 #endif

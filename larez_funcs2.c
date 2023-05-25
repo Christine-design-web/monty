@@ -1,34 +1,33 @@
 #include "monty.h"
-#include "lists.h"
+#include "larez.h"
 
 /**
- * insert_dnodeint_at_index - inserts a node at a given index
- * in a doubly linked list
- * @h: double pointer to the list
+ * insert_dnodeint_at_index - this will insert a node at a given index
+ * @b: double pointer to the list
  * @idx: index of the node to insert
- * @n: data to insert
- *
+ * @p: data to insert
  * Return: address of the new node, or NULL if it failed
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+
+dlistint_t *insert_dnodeint_at_index(dlistint_t **b, unsigned int idx, int p)
 {
-	unsigned int i;
+	unsigned int m;
 	dlistint_t *new;
-	dlistint_t *temp = *h;
+	dlistint_t *temp = *b;
 
 	if (idx == 0)
-		return (add_dnodeint(h, n));
+		return (add_dnodeint(b, p));
 
-	for (i = 0; temp && i < idx; i++)
+	for (m = 0; temp && m < idx; m++)
 	{
-		if (i == idx - 1)
+		if (m == idx - 1)
 		{
 			if (temp->next == NULL)
-				return (add_dnodeint_end(h, n));
+				return (add_dnodeint_end(b, p));
 			new = malloc(sizeof(dlistint_t));
-			if (!new || !h)
+			if (!new || !b)
 				return (NULL);
-			new->n = n;
+			new->p = p;
 			new->next = NULL;
 			new->next = temp->next;
 			new->prev = temp;
@@ -44,13 +43,12 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 }
 
 /**
- * add_dnodeint_end - adds a new node at the end of a doubly linked list
+ * add_dnodeint_end - this will add a new node at the end of a doubly linked list
  * @head: double pointer to the list
- * @n: data to insert in the new node
- *
+ * @p: data to insert in the new node
  * Return: the address of the new element, or NULL if it failed
  */
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end(dlistint_t **head, const int p)
 {
 	dlistint_t *new;
 	dlistint_t *temp = *head;
@@ -62,7 +60,7 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 	if (!new)
 		return (NULL);
 
-	new->n = n;
+	new->p = p;
 	new->next = NULL;
 
 	if (*head == NULL)
@@ -80,11 +78,11 @@ dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
 
 	return (new);
 }
-
 /**
- * free_dlistint - frees a doubly linked list
+ * free_dlistint - this frees a doubly linked list
  * @head: pointer to the list to free
  */
+
 void free_dlistint(dlistint_t *head)
 {
 	dlistint_t *temp;

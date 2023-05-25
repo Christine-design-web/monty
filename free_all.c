@@ -1,10 +1,10 @@
 #include "monty.h"
-#include "lists.h"
-
+#include "larez.h"
 /**
- * free_all - custom memory handling function
- * @all: flag to indicate what to free
+ * free_all - this is a custom memory handling function
+ * @all: this will flag to indicate what to free
  */
+
 void free_all(int all)
 {
 	if (data.line)

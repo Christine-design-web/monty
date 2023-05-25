@@ -1,11 +1,12 @@
 #include "monty.h"
-#include "lists.h"
+#include "larez.h"
 
 /**
- * pchar_handler - handles the pchar instruction
- * @stack: double pointer to the stack to push to
- * @line_number: number of the line in the file
+ * pchar_handler - this will handle the pchar instruction
+ * @stack: this is the double pointer to the stack to push
+ * @line_number: the number of the line in the file
  */
+
 void pchar_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = *stack;
@@ -17,22 +18,22 @@ void pchar_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	if (node->n < 0 || node->n > 127)
+	if (node->p < 0 || node->p > 127)
 	{
 		dprintf(STDERR_FILENO, PCHAR_RANGE, line_number);
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
 
-	putchar(node->n);
+	putchar(node->p);
 	putchar('\n');
 }
-
 /**
- * pstr_handler - handles the pstr instruction
- * @stack: double pointer to the stack to push to
+ * pstr_handler - this will handle the pstr instruction
+ * @stack: the double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
+
 void pstr_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = *stack;
@@ -45,9 +46,9 @@ void pstr_handler(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	while (node && node->n != 0 && node->n >= 0 && node->n <= 127)
+	while (node && node->p != 0 && node->p >= 0 && node->p <= 127)
 	{
-		putchar(node->n);
+		putchar(node->p);
 		node = node->next;
 	}
 
