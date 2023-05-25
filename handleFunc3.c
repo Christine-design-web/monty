@@ -1,11 +1,11 @@
 #include "monty.h"
-#include "larez.h"
-/**
- * rotl_handler - this will handle the rotl instruction
- * @stack: this is the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
+#include "lists.h"
 
+/**
+ * rotl_handler - handles the rotl instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void rotl_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
@@ -20,12 +20,12 @@ void rotl_handler(stack_t **stack, unsigned int line_number)
 	delete_dnodeint_at_index(stack, 0);
 	add_dnodeint_end(stack, num);
 }
-/**
- * rotr_handler - this will handle the rotr instruction
- * @stack: the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
 
+/**
+ * rotr_handler - handles the rotr instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void rotr_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
@@ -40,31 +40,27 @@ void rotr_handler(stack_t **stack, unsigned int line_number)
 	delete_dnodeint_at_index(stack, len - 1);
 	add_dnodeint(stack, num);
 }
-/**
- * stack_handler - this will handle the stack instruction
- * @stack: this will double point to the stack to push to
- * @line_number: the number of the line in the file
- */
 
+/**
+ * stack_handler - handles the stack instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void stack_handler(stack_t **stack, unsigned int line_number)
 {
-/* the stack for the instruction */
-
 	(void)stack;
 	(void)line_number;
 	data.qflag = 0;
 }
 
-/**
- * queue_handler - this will handle the queue instruction
- * @stack: the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
 
+/**
+ * queue_handler - handles the queue instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void queue_handler(stack_t **stack, unsigned int line_number)
 {
-/* the flag void */
-
 	(void)stack;
 	(void)line_number;
 	data.qflag = 1;

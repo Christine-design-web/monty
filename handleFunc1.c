@@ -1,10 +1,10 @@
 #include "monty.h"
-#include "larez.h"
+#include "lists.h"
 
 /**
- * pint_handler - this will handle the pint instruction
- * @stack: this will double pointer to the stack to push
- * @line_number: the number of the line in the file
+ * pint_handler - handles the pint instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
  */
 void pint_handler(stack_t **stack, unsigned int line_number)
 {
@@ -16,20 +16,18 @@ void pint_handler(stack_t **stack, unsigned int line_number)
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
-/* this will print to the terminal */
+
 	printf("%d\n", head->n);
 }
 
 /**
- * pop_handler - this will handle the pop instruction
- * @stack: the double pointer to the stack to push
- * @line_number: the number of the line in the file
+ * pop_handler - handles the pop instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
  */
-
 void pop_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack;
-/* the if function to ouput the temp starts here */
 
 	if (!temp)
 	{
@@ -40,17 +38,16 @@ void pop_handler(stack_t **stack, unsigned int line_number)
 
 	delete_dnodeint_at_index(stack, 0);
 }
+
 /**
- * swap_handler - this will handle the swap instruction
- * @stack: the double pointer to the stack to push
+ * swap_handler - handles the swap instruction
+ * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
-
 void swap_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *temp = *stack, *node = NULL;
 	int num;
-/* the num if fuction starts here*/
 
 	if (dlistint_len(*stack) < 2)
 	{
@@ -70,12 +67,12 @@ void swap_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-/**
- * add_handler - this will handle the add instruction
- * @stack: the double pointer to the stack to push
- * @line_number: the number of the line in the file
- */
 
+/**
+ * add_handler - handles the add instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void add_handler(stack_t **stack, unsigned int line_number)
 {
 	int sum = 0;
@@ -101,12 +98,12 @@ void add_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-/**
- * nop_handler - this will handle the nop instruction
- * @stack: the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
 
+/**
+ * nop_handler - handles the nop instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void nop_handler(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;

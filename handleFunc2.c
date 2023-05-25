@@ -1,18 +1,17 @@
 #include "monty.h"
-#include "larez.h"
-/**
- * sub_handler - this will handle the sub instruction
- * @stack: the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
+#include "lists.h"
 
+/**
+ * sub_handler - handles the sub instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void sub_handler(stack_t **stack, unsigned int line_number)
 {
 	int sub = 0;
 	stack_t *node = NULL;
 	stack_t *node_0 = get_dnodeint_at_index(*stack, 0);
 	stack_t *node_1 = get_dnodeint_at_index(*stack, 1);
-/* handling the sub instruction*/
 
 	if (dlistint_len(*stack) < 2)
 	{
@@ -32,12 +31,12 @@ void sub_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-/**
- * div_handler - this will handle the div instruction
- * @stack: the double pointer to the stack to push
- * @line_number: the number of the line in the file
- */
 
+/**
+ * div_handler - handles the div instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void div_handler(stack_t **stack, unsigned int line_number)
 {
 	int div = 0;
@@ -58,7 +57,6 @@ void div_handler(stack_t **stack, unsigned int line_number)
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
-/* this will look for the division */
 
 	div = node_1->n / node_0->n;
 	delete_dnodeint_at_index(stack, 0);
@@ -71,12 +69,12 @@ void div_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
- * mul_handler - this will handle the mul instruction
- * @stack: the double pointer to the stack to push to
+ * mul_handler - handles the mul instruction
+ * @stack: double pointer to the stack to push to
  * @line_number: number of the line in the file
  */
-
 void mul_handler(stack_t **stack, unsigned int line_number)
 {
 	int mul = 0;
@@ -90,7 +88,6 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
-/* less commenting for this */
 
 	mul = node_1->n * node_0->n;
 	delete_dnodeint_at_index(stack, 0);
@@ -103,6 +100,7 @@ void mul_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
 /**
  * mod_handler - handles the mod instruction
  * @stack: double pointer to the stack to push to
@@ -121,7 +119,6 @@ void mod_handler(stack_t **stack, unsigned int line_number)
 		free_all(1);
 		exit(EXIT_FAILURE);
 	}
-/* looking whether it is equal to 0 */
 
 	if (node_0->n == 0)
 	{
@@ -134,8 +131,6 @@ void mod_handler(stack_t **stack, unsigned int line_number)
 	delete_dnodeint_at_index(stack, 0);
 	delete_dnodeint_at_index(stack, 0);
 	node = add_dnodeint(stack, mod);
-/* for the input */
-
 	if (!node)
 	{
 		dprintf(STDERR_FILENO, MALLOC_FAIL);

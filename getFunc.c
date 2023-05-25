@@ -1,11 +1,12 @@
 #include "monty.h"
-#include "larez.h"
-/**
- * get_func - this will select the right function
- * @parsed: the line from the bytecode file passed to main
- * Return: this is the pointer to the selected function, or NULL on failure
- */
+#include "lists.h"
 
+/**
+ * get_func - selects the right function
+ * @parsed: line from the bytecode file passed to main
+ *
+ * Return: pointer to the selected function, or NULL on failure
+ */
 void (*get_func(char **parsed))(stack_t **, unsigned int)
 {
 	instruction_t func_arr[] = {
@@ -29,27 +30,27 @@ void (*get_func(char **parsed))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 
-	int codes = 17, m;
+	int codes = 17, i;
 
-	for (m = 0; m < codes; m++)
+	for (i = 0; i < codes; i++)
 	{
-		if (strcmp(func_arr[m].opcode, parsed[0]) == 0)
+		if (strcmp(func_arr[i].opcode, parsed[0]) == 0)
 		{
-			return (func_arr[m].f);
+			return (func_arr[i].f);
 		}
 	}
 	return (NULL);
 }
-/**
- * push_handler - this handles the push instruction
- * @stack: this will double the pointer to the stack to push
- * @line_number: this the number of the line in the file
- */
 
+/**
+ * push_handler - handles the push instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void push_handler(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new;
-	int num = 0, m;
+	int num = 0, i;
 
 	if (data.words[1] == NULL)
 	{
@@ -58,9 +59,9 @@ void push_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	for (m = 0; data.words[1][m]; m++)
+	for (i = 0; data.words[1][i]; i++)
 	{
-		if (isalpha(data.words[1][m]) != 0)
+		if (isalpha(data.words[1][i]) != 0)
 		{
 			dprintf(STDERR_FILENO, PUSH_FAIL, line_number);
 			free_all(1);
@@ -68,7 +69,7 @@ void push_handler(stack_t **stack, unsigned int line_number)
 		}
 	}
 	num = atoi(data.words[1]);
-/* the if fuction starts here */
+
 	if (data.qflag == 0)
 		new = add_dnodeint(stack, num);
 	else if (data.qflag == 1)
@@ -80,12 +81,12 @@ void push_handler(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-/**
- * pall_handler - tthis will handle the pall instruction
- * @stack: the double pointer to the stack to push to
- * @line_number: the number of the line in the file
- */
 
+/**
+ * pall_handler - handles the pall instruction
+ * @stack: double pointer to the stack to push to
+ * @line_number: number of the line in the file
+ */
 void pall_handler(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
